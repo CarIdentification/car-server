@@ -1,7 +1,7 @@
 
 spring:
   application:
-    name: zuul-config-server
+    name: config-server
   cloud:
     config:
       server:
@@ -10,10 +10,10 @@ spring:
           password:
           uri: https://github.com/CarIdentification/car-config.git
           search-paths: config
-      label: master
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+#      label: master
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8763

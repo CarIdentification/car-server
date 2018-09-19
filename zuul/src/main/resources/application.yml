@@ -15,7 +15,7 @@ zuul:
     #路由转发
     api-basicS:
       path: /api-basicS/**
-      url: http://localhost:8763
+      url: http://localhost:8764
 #  重定向时隐藏真实端口地址
   add-host-header: true
 ribbon:
