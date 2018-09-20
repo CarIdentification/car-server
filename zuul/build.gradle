@@ -33,13 +33,15 @@ ext {
 }
 
 dependencies {
-	compile('org.springframework.cloud:spring-cloud-config-server')
-	compile('org.springframework.cloud:spring-cloud-starter-eureka')
+
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-ribbon')
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
 	compile('org.springframework.cloud:spring-cloud-starter-hystrix')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile('org.springframework.cloud:spring-cloud-starter-config')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
 }
 
 dependencyManagement {
