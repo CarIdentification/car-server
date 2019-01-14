@@ -35,6 +35,7 @@ ext {
 dependencies {
 	compile('org.springframework.cloud:spring-cloud-config-client')
 	compile('org.springframework.cloud:spring-cloud-starter-eureka')
+
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-ribbon')
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
