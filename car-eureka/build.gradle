@@ -18,36 +18,38 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'application'
 apply plugin: 'docker'
 
-group = 'org.car-discern'
+group = 'kebencool'
 version = '0.0.1-SNAPSHOT'
 //指定编译.java文件的jdk版本
 sourceCompatibility = 1.8
 //确保.class文件与targetCompatibility所指定版本或者更新版本的java虚拟机兼容
 targetCompatibility = 1.8
 
-mainClassName = "org.car-discern.ServerApplication"
+mainClassName = "com.example.server.ServerApplication"
 
 //配置镜像名称和版本号
 jar {
-	baseName = "spring-boot-car-server"
-	version = 1.0
+	baseName = "server"
+	version = "0.0.1-SNAPSHOT"
 }
-//tag = "${project.group}/${applicationName}:${project.version}"
 
 
 //配置docker构建基础信息
-distDocker {
-	baseImage = "car-server"
-	maintainer = "kelvin"
+docker {
+	baseImage 'store/oracle/serverjre:8'
+	maintainer 'kebencool kebencool@keben'
+	registry 'car'
 }
 
 //taskBuilder 的任务配置
-task buildDocker(type: Docker, dependsOn: build) {
+task dockerBuilder(type: Docker) {
 	applicationName = jar.baseName
 	tagVersion = jar.version
 	volume('/tmp')
-	addFile("${jar.baseName}-${jar.version}.jar", "app.jar")
-	entryPoint(["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", 'app.jar'])
+	//发布到远程docker hub仓库
+	push = project.hasProperty('push')
+	addFile("${jar.baseName}-${jar.version}.jar","app.jar")
+	entryPoint(["java","-Djava.security.egd=file:/dev/./urandom","-jar",'app.jar'])
 	exposePort(8761)
 	doFirst {
 		copy {
