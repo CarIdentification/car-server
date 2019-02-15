@@ -25,7 +25,7 @@ sourceCompatibility = 1.8
 //确保.class文件与targetCompatibility所指定版本或者更新版本的java虚拟机兼容
 targetCompatibility = 1.8
 
-mainClassName = "com.example.configServer.ConfigServerApplilcation"
+mainClassName = "com.example.configServer.ConfigServerApplication"
 
 //配置镜像名称和版本号
 jar {
